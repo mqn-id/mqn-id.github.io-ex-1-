@@ -1,0 +1,3 @@
+Project Console: https://console.firebase.google.com/project/submitujuh/overview
+Hosting URL: https://submitujuh.web.app
+Github Pages: https://github.com/mqn-id/mqn-id.github.io.git

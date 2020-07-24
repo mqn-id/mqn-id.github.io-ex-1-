@@ -78,7 +78,7 @@ function getTeamById() {
             let teamHTML = `
             <div class="row">
             <div class="card-panel">
-            <h4 class="light center grey-text text-darken-3"><img class="responsive-img" style="width:30px;" src="${data.crestUrl}"> <b>${data.name}</b></h4>
+            <h4 class="light center grey-text text-darken-3"><img class="responsive-img" style="width:30px;" src="${data.crestUrl}" onerror="this.src='../img/favicon.ico'" alt="Logo Tim"> <b>${data.name}</b></h4>
             <p align="center">Founded : ${data.founded}<br>Club Colors : ${data.clubColors}<br>Ground : ${data.venue}</p>
             </div>
             <div class="col m4">
@@ -131,7 +131,7 @@ function getTeamById() {
       let teamHTML = `
         <div class="row">
           <div class="card-panel">
-          <h4 class="light center grey-text text-darken-3"><img class="responsive-img" style="width:30px;" src="${data.crestUrl}"> <b>${data.name}</b></h4>
+          <h4 class="light center grey-text text-darken-3"><img class="responsive-img" style="width:30px;" src="${data.crestUrl}" onerror="this.src='../img/favicon.ico'" alt="Logo Tim"> <b>${data.name}</b></h4>
           <p align="center">Founded : ${data.founded}<br>Club Colors : ${data.clubColors}<br>Ground : ${data.venue}</p>
           </div>
           <div class="col m4">
@@ -181,7 +181,7 @@ function getSavedTeams() {
 		//let description = team.post_content.substring(0,100);
       teamsHTML += `
                   <div class="card horizontal">
-                    <div class="card-panel center"><a href="./teams.html?id=${team.id}&saved=true"><img class="responsive-img" height="50" width="50" src="${team.crestUrl}" /></a></div>
+                    <div class="card-panel center"><a href="./teams.html?id=${team.id}&saved=true"><img class="responsive-img" height="50" width="50" src="${team.crestUrl}" onerror="this.src='../img/favicon.ico'" alt="Logo Tim" /></a></div>
                     <div class="card-content""><span class="card-title">${team.name}</span></div>
                   </div>
                 `;
@@ -199,7 +199,7 @@ function getSavedTeamById() {
     let teamHTML = '';
     teamHTML = `
     <div class="card horizontal">
-    <div class="card-panel center"><img class="responsive-img" height="150" width="150" src="${team.crestUrl}" /></div>
+    <div class="card-panel center"><img class="responsive-img" height="150" width="150" src="${team.crestUrl}" onerror="this.src='../img/favicon.ico'" alt="Logo Tim" /></div>
     <div class="fixed-action-btn">
     <a href="./teams.html?id=${team.id}&delete=true" class="btn-floating btn-large waves-effect waves-light red"><i class="small material-icons">delete</i></a>
     </div>

@@ -28,7 +28,9 @@ if (workbox) {
     { url: 'https://fonts.googleapis.com/icon?family=Material+Icons', revision: '7' },
     { url: 'https://code.jquery.com/jquery-2.2.1.min.js', revision: '7' },
     { url: 'https://fonts.gstatic.com/s/materialicons/v53/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2', revision: '7' }
-]);
+], {
+  ignoreUrlParametersMatching: [/.*/]
+});
 
 workbox.routing.registerRoute(
   new RegExp('/pages/'),
@@ -58,9 +60,11 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  new RegExp('https://api.football-data.org/'),
+  new RegExp('https://api.football-data.org/v2/'),
   workbox.strategies.staleWhileRevalidate({
-      cacheName: 'CACHES_API'
+    cacheExpiration: {
+          maxAgeSeconds: 60 * 30 //cache diperbarui setiap 30 menit
+    }
   })
 );
 
@@ -76,7 +80,7 @@ workbox.routing.registerRoute(
     }
     var options = {
       body: body,
-      icon: 'img/notification.png',
+      icon: './img/icon-128x128.png',
       vibrate: [100, 50, 100],
       data: {
         dateOfArrival: Date.now(),

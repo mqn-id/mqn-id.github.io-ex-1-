@@ -78,6 +78,7 @@
         }
         btnSave.onclick = function() {
           console.log("Tombol FAB di klik.");
+          btnSave.style.display = 'none';
 	        console.log(item);
         item.then(function(item) {
         saveForLater(item);

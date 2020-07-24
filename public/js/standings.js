@@ -1,11 +1,15 @@
 function resultStandingsJSON(data) {
   let standingTableHtml = `
-          <div class="card">
+        <div class="row">
+        <div class="col s12 m12">
+        <div class="card white z-depth-5">
+        <div class="card-content black-text">
+          <h4>Premier League Standings</h4>
           <table style="font-size:12px;" class="responsive-table">
             <thead>
               <tr >
-                <th></th>
-                <th></th>
+                <th>Rank</th>
+                <th>Logo</th>
                 <th style="text-align:center">Club</th>
                 <th>Games</th>
                 <th>Won</th>
@@ -21,7 +25,7 @@ function resultStandingsJSON(data) {
               standingTableHtml += `
                       <tr>
                         <td>${item.position}</td>
-                        <td><a href="./teams.html?id=${item.team.id}"><img style="width:25px;" src="${item.team.crestUrl.replace(/^http:\/\//i, 'https://')}"></a></td>
+                        <td><a href="./teams.html?id=${item.team.id}"><img style="width:25px;" src="${item.team.crestUrl.replace(/^http:\/\//i, 'https://')}" onerror="this.src='../img/favicon.ico'" alt="Logo Tim"></a></td>
                         <td><a href="./teams.html?id=${item.team.id}">${item.team.name}</a></td>
                         <td>${item.playedGames}</td>
                         <td>${item.won}</td>
@@ -33,7 +37,10 @@ function resultStandingsJSON(data) {
             });
             standingTableHtml += `</tbody>
             </table>
-            </div>`;
+          </div>
+          </div>
+          </div>
+          </div>`;
    
   document.getElementById("standings").innerHTML = standingTableHtml;
 }

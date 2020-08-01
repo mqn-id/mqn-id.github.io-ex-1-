@@ -3,31 +3,32 @@ importScripts('https://storage.googleapis.com/workbox-cdn/releases/3.6.3/workbox
 if (workbox) {
   console.log(`Workbox berhasil dimuat`);
   workbox.precaching.precacheAndRoute([
-    { url: '/nav.html', revision: '7' },
-    { url: '/index.html', revision: '7' },
-    { url: '/teams.html', revision: '7' },
-    { url: '/pages/home.html', revision: '7' },
-    { url: '/pages/about.html', revision: '7' },    
-    { url: '/pages/saved.html', revision: '7' },
-    { url: '/css/loader.css', revision: '7' },
-    { url: '/css/materialize.min.css', revision: '7' },    
-    { url: '/js/api.js', revision: '7' },
-    { url: '/js/db.js', revision: '7' },
-    { url: '/js/idb.js', revision: '7' },    
-    { url: '/js/materialize.min.js', revision: '7' },
-    { url: '/js/nav.js', revision: '7' },
-    { url: '/js/registersw.js', revision: '7' },    
-    { url: '/js/standings.js', revision: '7' },    
-    { url: '/manifest.json', revision: '7' },
-    { url: '/img/background_uerosport.jpg', revision: '7' },
-    { url: '/img/favicon.ico', revision: '7' },    
-    { url: '/img/icon-128x128.png', revision: '7' },
-    { url: '/img/icon-192x192.png', revision: '7' },
-    { url: '/img/icon-512x512.png', revision: '7' },
-    { url: '/img/poi.gif', revision: '7' },
-    { url: 'https://fonts.googleapis.com/icon?family=Material+Icons', revision: '7' },
-    { url: 'https://code.jquery.com/jquery-2.2.1.min.js', revision: '7' },
-    { url: 'https://fonts.gstatic.com/s/materialicons/v53/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2', revision: '7' }
+    { url: '/nav.html', revision: '7.1' },
+    { url: '/index.html', revision: '7.1' },
+    { url: '/teams.html', revision: '7.1' },
+    { url: '/pages/home.html', revision: '7.1' },
+    { url: '/pages/about.html', revision: '7.1' },    
+    { url: '/pages/saved.html', revision: '7.1' },
+    { url: '/css/loader.css', revision: '7.1' },
+    { url: '/css/materialize.min.css', revision: '7.1' },    
+    { url: '/js/api.js', revision: '7.1' },
+    { url: '/js/db.js', revision: '7.1' },
+    { url: '/js/idb.js', revision: '7.1' },    
+    { url: '/js/materialize.min.js', revision: '7.1' },
+    { url: '/js/nav.js', revision: '7.1' },
+    { url: '/js/registersw.js', revision: '7.1' },    
+    { url: '/js/standings.js', revision: '7.1' },    
+    { url: '/manifest.json', revision: '7.1' },
+    { url: '/img/background_uerosport.jpg', revision: '7.1' },
+    { url: '/img/favicon.ico', revision: '7.1' },    
+    { url: '/img/icon-128x128.png', revision: '7.1' },
+    { url: '/img/icon-192x192.png', revision: '7.1' },
+    { url: '/img/icon-512x512.png', revision: '7.1' },
+    { url: '/img/icon-512x512.png', revision: '7.1' },
+    { url: '/img/poi.gif', revision: '7.1' },
+    { url: 'https://fonts.googleapis.com/icon?family=Material+Icons', revision: '7.1' },
+    { url: 'https://code.jquery.com/jquery-2.2.1.min.js', revision: '7.1' },
+    { url: 'https://fonts.gstatic.com/s/materialicons/v53/flUhRq6tzZclQEJ-Vdg-IuiaDsNcIhQ8tQ.woff2', revision: '7.1' }
 ], {
   ignoreUrlParametersMatching: [/.*/]
 });
@@ -60,7 +61,7 @@ workbox.routing.registerRoute(
 );
 
 workbox.routing.registerRoute(
-  new RegExp('https://api.football-data.org/v2/'),
+  ({url}) => url.origin === 'https://api.football-data.org/v2/',
   workbox.strategies.staleWhileRevalidate({
     cacheExpiration: {
           maxAgeSeconds: 60 * 30 //cache diperbarui setiap 30 menit

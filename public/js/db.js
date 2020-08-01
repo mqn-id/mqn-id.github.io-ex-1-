@@ -16,9 +16,11 @@ function saveForLater(team) {
     })
     .then(function() {
       console.log("Team berhasil di simpan.");
+      M.toast({html: 'Team berhasil di simpan.'});
     })
     .catch(function() {
-      console.error('Team gagal disimpan.')
+      console.error('Team gagal disimpan.');
+      M.toast({html: 'Team gagal disimpan.'});
     });
 }
 
@@ -49,6 +51,7 @@ function deleteData(id) {
     .then(function() {
       console.log(getId);
       console.log('Team Berhasil dihapus');
+      M.toast({html: 'Team Berhasil dihapus'});
     });
   });
 }
